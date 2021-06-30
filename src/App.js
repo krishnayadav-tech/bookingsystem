@@ -1,23 +1,15 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
-
+import Screen2 from './Components/Screen2';
+import Screen from './Components/Screen1'
 function App() {
+
+  let [region,changeRegion] = useState(0);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="container">
+        {region===0?<Screen changeRegion={changeRegion}></Screen>:<Screen2 region={region} changeRegion={changeRegion}></Screen2>}
+      </div>
     </div>
   );
 }
